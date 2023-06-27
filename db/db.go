@@ -9,18 +9,19 @@ package db
 import (
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
-	"github.com/Ma3au88/Go_WebApp/model"
+	"gowebapp/model"
 )
 
 type Config struct {
 	ConnectString string
 }
+
 // InitDb() создает экземпляр pgDb, который является Postgres-реализацией нашего интерфейса model.db
 func InitDb(cfg Config) (*pgDb, error) {
 	if dbConn, err := sqlx.Connect("postgres", cfg.ConnectString); err != nil {
 		return nil, err
 	} else {
-		p := &pgDb(dbConn: dbConn)
+		p := &pgDb{dbConn: dbConn}
 		if err := p.dbConn.Ping(); err != nil {
 			return nil, err
 		}
@@ -48,6 +49,7 @@ func (p *pgDb) createTablesIfNotExist() error {
 			id SERIAL NOT NULL PRIMARY KEY,
 			first TEXT NOT NULL,
 			last TEXT NOT NULL);
+		INSERT INTO people (first, last) VALUES('John', 'Doe');
 	`
 	if rows, err := p.dbConn.Query(createSql); err != nil {
 		return err

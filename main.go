@@ -7,7 +7,7 @@ package main
 
 import (
 	"flag"
-	"github.com/Ma3au88/Go_WebApp/deamon"
+	"gowebapp/deamon"
 	"log"
 	"net/http"
 )

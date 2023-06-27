@@ -9,9 +9,9 @@
 package deamon
 
 import (
-	"github.com/Ma3au88/Go_WebApp/db"
-	"github.com/Ma3au88/Go_WebApp/model"
-	"github.com/Ma3au88/Go_WebApp/ui"
+	"gowebapp/db"
+	"gowebapp/model"
+	"gowebapp/ui"
 	"log"
 	"net"
 	"os"
